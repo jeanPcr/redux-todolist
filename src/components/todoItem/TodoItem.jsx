@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import TodoTextInput from "../forms/todoTextInput/TodoTextInput";
 
 const TodoItem = (props) => {
   const [editing, setEditing] = useState(false);
   const { todo, onCompleteTodo, onDeleteTodo } = props;
 
-  const propTypes = {
-    todo: PropTypes.object.isRequired,
-    onEditTodo: PropTypes.func.isRequired,
-    onDeleteTodo: PropTypes.func.isRequired,
-    onCompleteTodo: PropTypes.func.isRequired,
-  };
+  // const propTypes = {
+  //   todo: PropTypes.object.isRequired,
+  //   onEditTodo: PropTypes.func.isRequired,
+  //   onDeleteTodo: PropTypes.func.isRequired,
+  //   onCompleteTodo: PropTypes.func.isRequired,
+  // };
 
   const handleDoubleClick = () => {
     setEditing(false);
@@ -19,7 +20,7 @@ const TodoItem = (props) => {
     if (text.length === 0) {
       onDeleteTodo(id);
     } else {
-      onEditTodo(id, text);
+      //onEditTodo(id, text);
     }
     setEditing(false);
   };
@@ -41,7 +42,7 @@ const TodoItem = (props) => {
           className="toggle"
           type="checkbox"
           checked={todo.completed}
-          onChange={() => onCompleteTodo(todo.id)}
+          // onChange={() => onCompleteTodo(todo.id)}
         />
         <label onDoubleClick={handleDoubleClick}>{todo.text}</label>
         <button
@@ -55,10 +56,10 @@ const TodoItem = (props) => {
 
   return (
     <li
-      className={classnames({
-        completed: todo.completed,
-        editing,
-      })}
+    // className={classnames({
+    //   completed: todo.completed,
+    //   editing,
+    // })}
     >
       {element}
     </li>

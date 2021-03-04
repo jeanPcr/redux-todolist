@@ -1,11 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "todomvc-app-css/index.css";
-import App from "./App";
 
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+
+import "todomvc-app-css/index.css";
+import App from "./components/App";
+
+import reducer from "./reducers";
+
+const store = createStore(reducer);
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById("root")
 );
